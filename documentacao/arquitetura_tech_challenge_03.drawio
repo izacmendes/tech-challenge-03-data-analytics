@@ -1,0 +1,149 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram id="tc03-architecture" name="Arquitetura AWS">
+    <mxGraphModel dx="2975" dy="1718" grid="1" gridSize="10" guides="1" tooltips="1" connect="0" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1600" pageHeight="900" background="light-dark(#ffffff, #121212)" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=26;fontStyle=1;fontColor=#0f172a;rounded=1;roundedPerimeter=1;" value="TECH CHALLENGE 03 — Arquitetura de Dados na AWS" vertex="1">
+          <mxGeometry height="45" width="1400" x="-20" y="-100" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=19;fontColor=#475569;rounded=1;roundedPerimeter=1;" value="Pipeline State of Data Brasil | 3 edições | 14.005 registros" vertex="1">
+          <mxGeometry height="28" width="1400" x="-20" y="-40" as="geometry" />
+        </mxCell>
+        <mxCell id="lane1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;strokeWidth=1;dashed=1;arcSize=12;verticalAlign=top;spacingTop=12;fontSize=16;fontStyle=1;fontColor=#334155;roundedPerimeter=1;" value="1. ARMAZENAMENTO — AMAZON S3" vertex="1">
+          <mxGeometry height="680" width="330" x="-341" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="lane2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;strokeWidth=1;dashed=1;arcSize=12;verticalAlign=top;spacingTop=12;fontSize=16;fontStyle=1;fontColor=#334155;roundedPerimeter=1;" value="2. PROCESSAMENTO — AWS GLUE / PYSPARK" vertex="1">
+          <mxGeometry height="600" width="440" x="291" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="lane3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;strokeWidth=1;dashed=1;arcSize=12;verticalAlign=top;spacingTop=12;fontSize=16;fontStyle=1;fontColor=#334155;roundedPerimeter=1;" value="3. CATÁLOGO — GLUE DATA CATALOG" vertex="1">
+          <mxGeometry height="600" width="300" x="931" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="lane4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#cbd5e1;strokeWidth=1;dashed=1;arcSize=12;verticalAlign=top;spacingTop=12;fontSize=16;fontStyle=1;fontColor=#334155;roundedPerimeter=1;" value="4. CONSULTAS — AMAZON ATHENA" vertex="1">
+          <mxGeometry height="600" width="385" x="1492" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="source" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#fff7db;strokeColor=#d6a400;fontColor=#713f12;roundedPerimeter=1;" value="&lt;b&gt;Dados de origem&lt;/b&gt;&lt;br&gt;State of Data Brasil&lt;br&gt;2023–2024 • 2024–2025 • 2025–2026" vertex="1">
+          <mxGeometry height="95" width="270" x="-311" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="bronze" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#fff7db;strokeColor=#d6a400;fontColor=#713f12;roundedPerimeter=1;" value="&lt;b&gt;Amazon S3 — BRONZE&lt;/b&gt;&lt;br&gt;3 arquivos CSV originais&lt;br&gt;Dados preservados sem transformação" vertex="1">
+          <mxGeometry height="100" width="270" x="-311" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="silver" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#eaf5e8;strokeColor=#4d8b45;fontColor=#14532d;roundedPerimeter=1;" value="&lt;b&gt;Amazon S3 — SILVER&lt;/b&gt;&lt;br&gt;Dados tratados e padronizados&lt;br&gt;Formato Parquet (Snappy)&lt;br&gt;Metadados de edição e origem" vertex="1">
+          <mxGeometry height="115" width="270" x="-311" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="gold" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#e9f0ff;strokeColor=#4776bd;fontColor=#1e3a8a;roundedPerimeter=1;" value="&lt;b&gt;Amazon S3 — GOLD&lt;/b&gt;&lt;br&gt;perfil_profissional&lt;br&gt;indicadores_ia&lt;br&gt;indicadores_tecnologia" vertex="1">
+          <mxGeometry height="105" width="270" x="-311" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="job1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#fff1e8;strokeColor=#d97706;fontColor=#7c2d12;roundedPerimeter=1;" value="&lt;b&gt;Glue Job 01&lt;/b&gt;&lt;br&gt;Bronze → Silver&lt;br&gt;&lt;br&gt;Leitura dos CSVs&lt;br&gt;Padronização de colunas&lt;br&gt;Gravação em Parquet" vertex="1">
+          <mxGeometry height="145" width="175" x="320" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="jobs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#fff1e8;strokeColor=#d97706;fontColor=#7c2d12;roundedPerimeter=1;" value="&lt;b&gt;Glue Jobs 02, 03 e 04&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;02&lt;/b&gt; — Perfil profissional&lt;br&gt;&lt;b&gt;03&lt;/b&gt; — Indicadores de IA&lt;br&gt;&lt;b&gt;04&lt;/b&gt; — Indicadores de tecnologia&lt;br&gt;&lt;br&gt;Leitura da Silver e gravação da Gold" vertex="1">
+          <mxGeometry height="180" width="175" x="520" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="crawler" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#f3e8ff;strokeColor=#8b5cf6;fontColor=#581c87;roundedPerimeter=1;" value="&lt;b&gt;AWS Glue Crawler&lt;/b&gt;&lt;br&gt;crawler_silver_state_of_data&lt;br&gt;&lt;br&gt;Descobre esquemas e cataloga&lt;br&gt;as tabelas da camada Silver" vertex="1">
+          <mxGeometry height="125" width="230" x="320" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="catalogsilver" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#f3e8ff;strokeColor=#8b5cf6;fontColor=#581c87;roundedPerimeter=1;" value="&lt;b&gt;Glue Data Catalog&lt;/b&gt;&lt;br&gt;Database: tc3_state_of_data&lt;br&gt;&lt;br&gt;Tabelas Silver&lt;br&gt;silver_state_of_data_2023_2024&lt;br&gt;silver_state_of_data_2024_2025&lt;br&gt;silver_state_of_data_2025_2026" vertex="1">
+          <mxGeometry height="170" width="240" x="961" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="cataloggold" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#f3e8ff;strokeColor=#8b5cf6;fontColor=#581c87;roundedPerimeter=1;" value="&lt;b&gt;Tabelas Gold no Data Catalog&lt;/b&gt;&lt;br&gt;&lt;br&gt;gold_perfil_profissional&lt;br&gt;gold_indicadores_ia&lt;br&gt;gold_indicadores_tecnologia&lt;br&gt;&lt;br&gt;DDL executado no Athena" vertex="1">
+          <mxGeometry height="150" width="240" x="961" y="482.5" as="geometry" />
+        </mxCell>
+        <mxCell id="athena" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#e8f5ee;strokeColor=#26945b;fontColor=#14532d;roundedPerimeter=1;" value="&lt;b&gt;Amazon Athena&lt;/b&gt;&lt;br&gt;Consultas SQL sobre as tabelas Gold&lt;br&gt;&lt;br&gt;Validação • cruzamentos&lt;br&gt;Indicadores • análises históricas" vertex="1">
+          <mxGeometry height="135" width="305" x="1532" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="results" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#fff7db;strokeColor=#d6a400;fontColor=#713f12;roundedPerimeter=1;" value="&lt;b&gt;Amazon S3 — ATHENA RESULTS&lt;/b&gt;&lt;br&gt;Armazenamento dos resultados&lt;br&gt;das consultas SQL" vertex="1">
+          <mxGeometry height="95" width="305" x="1532" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="outputs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;align=center;verticalAlign=middle;fontSize=14;spacing=8;fillColor=#e8f5ee;strokeColor=#26945b;fontColor=#14532d;roundedPerimeter=1;" value="&lt;b&gt;Saídas analíticas&lt;/b&gt;&lt;br&gt;Resultados para gráficos,&lt;br&gt;storytelling e apresentação executiva" vertex="1">
+          <mxGeometry height="85" width="305" x="1532" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="source" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#64748b;strokeWidth=2;fontSize=12;fontColor=#334155;" target="bronze" value="CSV">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="bronze" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#d97706;strokeWidth=2;fontSize=12;fontColor=#334155;" value="Leitura CSV">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="54" y="372.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#4d8b45;strokeWidth=2;fontSize=12;fontColor=#334155;" target="silver" value="Parquet">
+          <mxGeometry relative="1" x="0.1108" as="geometry">
+            <Array as="points">
+              <mxPoint x="76" y="372.5" />
+              <mxPoint x="76" y="460" />
+              <mxPoint x="-176" y="460" />
+            </Array>
+            <mxPoint x="54" y="372.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="silver" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#4d8b45;strokeWidth=2;fontSize=12;fontColor=#334155;" target="jobs" value="Leitura Silver">
+          <mxGeometry relative="1" x="-0.0722" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="-30" y="500" />
+              <mxPoint x="-30" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="jobs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#4776bd;strokeWidth=2;fontSize=12;fontColor=#334155;" target="gold" value="Gravação Gold">
+          <mxGeometry relative="1" x="-0.3013" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="silver" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#8b5cf6;strokeWidth=2;fontSize=12;fontColor=#334155;dashed=1;dashPattern=6 4;" value="Descoberta">
+          <mxGeometry relative="1" x="-0.0016" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="6.5" y="557.5" />
+              <mxPoint x="6.5" y="640" />
+              <mxPoint x="54" y="640" />
+            </Array>
+            <mxPoint x="54" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="crawler" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#8b5cf6;strokeWidth=2;fontSize=12;fontColor=#334155;dashed=1;dashPattern=6 4;" target="catalogsilver" value="Tabelas Silver">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="317.5" y="690" />
+              <mxPoint x="1081" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="gold" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#8b5cf6;strokeWidth=2;fontSize=12;fontColor=#334155;dashed=1;dashPattern=6 4;" target="cataloggold" value="Cadastro das tabelas Gold">
+          <mxGeometry relative="1" x="-0.2978" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="-176" y="820" />
+              <mxPoint x="1081" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="cataloggold" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#26945b;strokeWidth=2;fontSize=12;fontColor=#334155;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="athena" value="Consulta SQL">
+          <mxGeometry relative="1" x="-0.2651" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1081" y="450" />
+              <mxPoint x="1380" y="450" />
+              <mxPoint x="1380" y="247.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="athena" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#d6a400;strokeWidth=2;fontSize=12;fontColor=#334155;" target="results" value="Resultados">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="results" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeColor=#26945b;strokeWidth=2;fontSize=12;fontColor=#334155;" target="outputs" value="Exportação / análise">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f5f9;strokeColor=#94a3b8;fontColor=#334155;fontSize=16;align=left;verticalAlign=middle;spacing=10;roundedPerimeter=1;" value="&lt;b&gt;Observações de implementação&lt;/b&gt;&lt;br&gt;• O Glue Job 01 lê diretamente os CSVs da pasta Bronze no S3; não depende da tabela genérica criada pelo crawler Bronze.&lt;br&gt;• O crawler Silver catalogou as três tabelas Silver no banco &lt;b&gt;tc3_state_of_data&lt;/b&gt;.&lt;br&gt;• As três tabelas Gold foram criadas manualmente no Athena por DDL, devido às limitações de permissão para catalogação automática." vertex="1">
+          <mxGeometry height="90" width="1135" x="112.5" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontColor=#475569;rounded=1;roundedPerimeter=1;" value="Região AWS: us-east-1 (N. Virginia)  |  Formato de armazenamento analítico: Parquet" vertex="1">
+          <mxGeometry height="25" width="1400" x="-30" y="1000" as="geometry" />
+        </mxCell>
+        <mxCell id="0zGePsEyjcfYzdOpVNFm-1" edge="1" parent="1" source="crawler" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;innerLoopWaypoints=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.993;entryY=0.612;entryDx=0;entryDy=0;strokeColor=#DDA15E;fontColor=#FEFAE0;defaultLabelBackgroundColor=page;fillColor=#BC6C25;" target="crawler">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
