@@ -82,30 +82,33 @@ Os arquivos-fonte dos Jobs estão disponíveis em `src/glue_jobs/`.
 ## 6. Organização do projeto
 
 ```text
-TECH CHALLENGE/
-└── 03/
-    ├── data/
-    ├── src/
-    │   ├── glue_jobs/
-    │   │   ├── 01_bronze_to_silver.py
-    │   │   ├── 02_silver_to_gold_perfil.py
-    │   │   ├── 03_silver_to_gold_ia.py
-    │   │   └── 04_silver_to_gold_tecnologia.py
-    │   └── sql/
-    │       ├── 01_validacao_dados.sql
-    │       ├── 02_perfil_profissional.sql
-    │       ├── 03_diversidade_e_genero.sql
-    │       ├── 04_regiao_e_senioridade.sql
-    │       ├── 05_remuneracao.sql
-    │       ├── 06_tecnologias.sql
-    │       ├── 07_indicadores_ia.sql
-    │       └── 08_modelo_de_trabalho.sql
-    ├── results/
-    │   ├── figures/
-    │   └── metrics/
-    ├── presentation/
-    ├── requirements.txt
-    └── README.md
+03/
+├── data/
+├── documentacao/
+│   ├── relatorio_tecnico.pdf
+│   ├── arquitetura.drawio
+│   ├── arquitetura.png
+│   └── arquitetura.pdf
+├── results/
+│   ├── figures/
+│   └── metrics/
+├── src/
+│   └── glue_jobs/
+│       ├── 01_bronze_to_silver.py
+│       ├── 02_silver_to_gold_perfil.py
+│       ├── 03_silver_to_gold_ia.py
+│       └── 04_silver_to_gold_tecnologia.py
+├── sql/
+│   ├── 01_validacao_dados.sql
+│   ├── 02_perfil_profissional.sql
+│   ├── 03_diversidade_e_genero.sql
+│   ├── 04_regiao_e_senioridade.sql
+│   ├── 05_remuneracao.sql
+│   ├── 06_tecnologias.sql
+│   ├── 07_indicadores_ia.sql
+│   └── 08_modelo_de_trabalho.sql
+├── requirements.txt
+└── README.md
 ```
 
 ## 7. Indicadores analisados
